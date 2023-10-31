@@ -1,0 +1,17 @@
+[package]
+name = "singleton_instance"
+version = "0.1.0"
+authors = ["deadash <dead.ash@qq.com>"]
+edition = "2021"
+
+[dependencies]
+singleton_macro = { path = "singleton_macro" }
+
+[[test]]
+name = "integration_test"
+path = "tests/integration_test.rs"
+
+[workspace]
+members = [
+    "singleton_macro",
+]
