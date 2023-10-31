@@ -12,26 +12,26 @@ The `singleton_instance` library is designed to make singleton pattern implement
 
 ## Installation
 
-Add the following line to your `Cargo.toml`:
+To add this library to your project, insert the following lines into your `Cargo.toml`:
 
 ```toml
 [dependencies]
-singleton_instance = "0.1.0" # Use the current version
+singleton_instance = { git = "https://github.com/deadash/singleton_instance", package = "singleton_instance" }
+singleton_macro = { git = "https://github.com/deadash/singleton_instance", package = "singleton_macro" }
 ```
 
 ## Usage
 
-First, add the library to your crate:
-
-```rust
-extern crate singleton_instance;
-```
-
-Then, implement the `Initializable` trait for your struct:
+First, add the necessary imports:
 
 ```rust
 use singleton_instance::Initializable;
+use singleton_macro::Instance;
+```
 
+Next, define your struct and implement the `Initializable` trait:
+
+```rust
 #[derive(Instance)]
 struct AppConfig {
     db_url: String,
@@ -48,7 +48,7 @@ impl Initializable for AppConfig {
 }
 ```
 
-Now, you can retrieve the singleton instance as follows:
+Retrieve the singleton instance with:
 
 ```rust
 let config = AppConfig::instance();
